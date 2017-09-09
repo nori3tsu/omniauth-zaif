@@ -22,11 +22,11 @@ describe OmniAuth::Strategies::Zaif do
     end
 
     it 'should have correct authorize url' do
-      expect(subject.options.client_options.authorize_url).to eq('/oauth')
+      expect(subject.options.client_options.authorize_url).to eq('https://zaif.jp/oauth')
     end
 
     it 'should have correct token url' do
-      expect(subject.options.client_options.token_url).to eq('/v1/token')
+      expect(subject.options.client_options.token_url).to eq('https://oauth.zaif.jp/v1/token')
     end
   end
 
