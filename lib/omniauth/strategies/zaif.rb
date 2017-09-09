@@ -46,7 +46,10 @@ module OmniAuth
 
         raise "failed to execute get_id_info. http status code: #{res.code}" unless res.code.to_i == 200
 
-        @raw_info = JSON.load(res.body)['return']['user']
+        res = JSON.load(res.body)
+        raise "failed to execute get_id_info. error: #{res['error']}" unless res['success'] == 1
+
+        @raw_info = res['return']['user']
       end
     end
   end
