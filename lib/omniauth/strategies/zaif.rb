@@ -41,7 +41,7 @@ module OmniAuth
         req = Net::HTTP::Post.new(uri.request_uri)
 
         req['token'] = access_token.token
-        req.set_form_data({nonce: Time.now.to_i, method: 'get_id_info'})
+        req.set_form_data({nonce: Time.now.to_f, method: 'get_id_info'})
         res = https.request(req)
 
         raise "failed to execute get_id_info. http status code: #{res.code}" unless res.code.to_i == 200
