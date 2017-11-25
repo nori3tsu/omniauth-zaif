@@ -51,6 +51,12 @@ module OmniAuth
 
         @raw_info = res['return']['user']
       end
+
+      def callback_phase
+        super
+      rescue StandardError => e
+        fail!(:unkown_error, e)
+      end
     end
   end
 end
